@@ -20,6 +20,9 @@ const Lst_movies = () => {
             <div>
                 <h1 style={{ color: 'red', paddingBottom: '10px' }}>Liste de films</h1>
             </div>
+
+            <button>creer</button>
+
             
             <div>
                     {/* Affichage de la liste des films */}
@@ -27,6 +30,8 @@ const Lst_movies = () => {
                         <div key={movie._id} style={{padding: '10px'}}>
                             <h2>{movie.title}</h2>
                             <p>{movie.year}</p>
+                            <button>supprimer</button>
+                            <button>modifier</button>
                         </div>
                     ))}
             </div>

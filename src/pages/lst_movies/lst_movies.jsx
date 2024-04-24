@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllMovies } from '../../fetchData/api'
+import { getAllMovies, deleteMovie } from '../../fetchData/api'
 
 const Lst_movies = () => {
     const [movies, setMovies] = useState([]);
@@ -14,7 +14,18 @@ const Lst_movies = () => {
           }
         };
         fetchMovies();
-      }, []);
+    }, []);
+
+    const handleDelete = async (id) => {
+      try {
+        await deleteMovie(id);  // Supprime le film avec l'ID du film actuel
+        console.log('Film supprimé avec succès');
+        // Vous pouvez également mettre à jour l'état des films ou recharger la liste des films ici
+      } catch (error) {
+        console.error('Erreur lors de la suppression du film :', error);
+      }
+    };
+
     return (
         <>
             <div>
